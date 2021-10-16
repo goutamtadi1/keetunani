@@ -59,7 +59,7 @@ h3 {
   z-index: -999;
   pointer-events: none;
   top: 0rem;
-  left: 40rem;
+  left: 20rem;
 }
 
 /* only used for background overlay not needed for centering */
