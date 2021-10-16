@@ -60,6 +60,16 @@ export default function Component() {
     });
   };
 
+
+  const resetError = () => {
+    setDelay(null);
+    setCount(10);
+    setGender(null);
+    setError(null);
+    setWantToRevealGender(false);
+    setConfirmedReveal(false);
+  }
+
   // // For Testing purpose.
   // const saveData = (form) => {
   //   console.log("In Save Data: ", form);
@@ -192,7 +202,7 @@ export default function Component() {
                       </Container>
 
                       {/* Show the error message when error is not null*/}
-                      <Toast onClose={() => setError(null)} show={!!error} delay={6000} autohide>
+                      <Toast onClose={() => resetError()} show={!!error} delay={100000} autohide>
                         <Toast.Header>
                           <h3 className="me-auto ">{error}</h3>
                         </Toast.Header>
