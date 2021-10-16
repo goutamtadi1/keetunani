@@ -18,7 +18,7 @@ const App = () => {
     <div >
       <Router>
         <div>
-          <nav className="navigation">
+          {/* <nav className="navigation">
             <ul>
               <li>
                 <Link to="/">Guess</Link>
@@ -34,7 +34,7 @@ const App = () => {
               </li>
 
             </ul>
-          </nav>
+          </nav> */}
 
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
