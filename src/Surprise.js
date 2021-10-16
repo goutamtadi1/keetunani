@@ -71,7 +71,7 @@ export default function Component() {
 
   const resetError = () => {
     setDelay(null);
-    setCount(10);
+    setCount(25);
     setGender(null);
     setError(null);
     setColors(['#FFFFFF', '#03D0FE', '#FE03EF']);
