@@ -8,14 +8,17 @@ import Graph from './Graph.js';
 export default function Component() {
   const [count, setCount] = useState(10);
   const [delay, setDelay] = useState(null);
+
   const [wantToRevealGender, setWantToRevealGender] = useState(false);
   const [confirmedReveal, setConfirmedReveal] = useState(false);
+  const [showGraph, setShowGraph] = useState(true);
+
   const [passcode, setPasscode] = useState("");
   const [gender, setGender] = useState(null);
   const [error, setError] = useState(null);
   const [colors, setColors] = useState(['#FFFFFF', '#03D0FE', '#FE03EF']);
-  const boy = "#03D0FE";
-  const girl = "#FE03EF";
+  // const boy = "#03D0FE";
+  // const girl = "#FE03EF";
 
   const { width, height } = '100%';
 
@@ -26,7 +29,10 @@ export default function Component() {
 
   useInterval(() => {
     if (count < 5) {
-      setColors(boy ? ["#03D0FE"] : ['#FE03EF']);
+      setColors(gender === 'boy' ? ["#03D0FE"] : ['#FE03EF']);
+    }
+    if (count < 3) {
+      setShowGraph(false);
     }
     if (count > 0) {
       setCount(count - 1);
@@ -71,6 +77,7 @@ export default function Component() {
     setColors(['#FFFFFF', '#03D0FE', '#FE03EF']);
     setWantToRevealGender(false);
     setConfirmedReveal(false);
+    setShowGraph(true);
   }
 
   // // For Testing purpose.
@@ -220,9 +227,11 @@ export default function Component() {
 
         </section>
 
-        <div className="chartdiv">
-          <Graph />
-        </div>
+        {showGraph && (
+          <div className="chartdiv">
+            <Graph />
+          </div>
+        )}
 
         {error && (
           <p>

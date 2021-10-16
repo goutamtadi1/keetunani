@@ -26,6 +26,7 @@ const Guess = () => {
                     setInfoText(name + " your Guess is recorded !");
                     setGender('default');
                     setName('');
+                    document.getElementById('form').reset();
                     console.log('response: ', response.data);
                 });
             } else {
