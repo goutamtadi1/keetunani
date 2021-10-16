@@ -5,8 +5,6 @@ import useInterval from './services/useInterval.js';
 import TypeIt from "typeit-react";
 import Confetti from 'react-confetti'
 import Graph from './Graph.js';
-
-
 export default function Component() {
   const [count, setCount] = useState(10);
   const [delay, setDelay] = useState(null);
@@ -15,6 +13,7 @@ export default function Component() {
   const [passcode, setPasscode] = useState("");
   const [gender, setGender] = useState(null);
   const [error, setError] = useState(null);
+  const [colors, setColors] = useState(['#FFFFFF', '#03D0FE', '#FE03EF']);
   const boy = "#03D0FE";
   const girl = "#FE03EF";
 
@@ -26,6 +25,9 @@ export default function Component() {
 
 
   useInterval(() => {
+    if (count < 5) {
+      setColors(boy ? ["#03D0FE"] : ['#FE03EF']);
+    }
     if (count > 0) {
       setCount(count - 1);
     } else {
@@ -66,6 +68,7 @@ export default function Component() {
     setCount(10);
     setGender(null);
     setError(null);
+    setColors(['#FFFFFF', '#03D0FE', '#FE03EF']);
     setWantToRevealGender(false);
     setConfirmedReveal(false);
   }
@@ -83,27 +86,27 @@ export default function Component() {
 
   return (
     <>
-      {passcode && !!gender && !error && count < 5 && (
-        <Confetti
-          width={width}
-          height={height}
-          // drawShape={ctx => {
-          //     ctx.beginPath()
-          //     for (let i = 0; i < 22; i++) {
-          //         const angle = 0.35 * i
-          //         const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
-          //         const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
-          //         ctx.lineTo(x, y)
-          //     }
-          //     ctx.stroke()
-          //     ctx.closePath()
-          // }}
-          gravity={0.09}
-          colors={gender == 'boy' ? [boy] : [girl]}
-          tweenDuration={1000}
-          numberOfPieces={600}
-        />
-      )}
+      {/* {passcode && !!gender && !error && count < 5 && ( */}
+      <Confetti
+        width={width}
+        height={height}
+        // drawShape={ctx => {
+        //     ctx.beginPath()
+        //     for (let i = 0; i < 22; i++) {
+        //         const angle = 0.35 * i
+        //         const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
+        //         const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
+        //         ctx.lineTo(x, y)
+        //     }
+        //     ctx.stroke()
+        //     ctx.closePath()
+        // }}
+        gravity={0.09}
+        colors={colors}
+        tweenDuration={1000}
+        numberOfPieces={600}
+      />
+      {/* )} */}
       <div className="reveal-container">
         <section id="cover" className="min-vh-100">
           <div id="cover-caption">
@@ -202,7 +205,7 @@ export default function Component() {
                       </Container>
 
                       {/* Show the error message when error is not null*/}
-                      <Toast onClose={() => resetError()} show={!!error} delay={100000} autohide>
+                      <Toast onClose={() => resetError()} show={!!error} delay={2000} autohide>
                         <Toast.Header>
                           <h3 className="me-auto ">{error}</h3>
                         </Toast.Header>
