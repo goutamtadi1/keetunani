@@ -28,7 +28,7 @@ export default function Component() {
 
 
   useInterval(() => {
-    if (count < 5) {
+    if (count < 8) {
       setColors(gender === 'boy' ? ["#03D0FE"] : ['#FE03EF']);
     }
     if (count < 3) {
