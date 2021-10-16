@@ -28,7 +28,7 @@ export default function Graph() {
             formatData(response.data);
         });
     };
-    
+
 
     function formatData(data) {
         data = data.map(el => {
@@ -42,20 +42,20 @@ export default function Graph() {
         const femaleArray = data.filter(el => el.gender === 'female');
         setchartData([
             {
-                name: "Male",
-                value: maleArray.length * 30,
+                name: "Boy",
+                value: maleArray.length * 40 || 50,
                 children: maleArray,
             },
             {
-                name: "Female",
-                value: femaleArray.length * 30,
+                name: "Girl",
+                value: femaleArray.length * 40 || 50,
                 children: femaleArray,
                 color: '#fffff'
             }
         ]);
     }
-    if(chartData!=chart.data)
-    chart.data = chartData;
+    if (chartData != chart.data)
+        chart.data = chartData;
 
     networkSeries.colors.list = [
         am4core.color(boy),
@@ -65,7 +65,7 @@ export default function Graph() {
 
     // Expand single level only
     networkSeries.nodes.template.expandAll = false;
-    networkSeries.nodes.template.fill="#fffff";
+    networkSeries.nodes.template.fill = "#fffff";
     networkSeries.dataFields.value = "value";
     networkSeries.dataFields.name = "name";
     networkSeries.dataFields.children = "children";
