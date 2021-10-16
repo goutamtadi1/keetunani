@@ -72,8 +72,8 @@ const Guess = () => {
                                                             <label className="sr-only inputsHeading">Gender</label>
                                                             <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)}>
                                                                 <option value="default">Select the Gender</option>
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
+                                                                <option value="male">Boy</option>
+                                                                <option value="female">Girl</option>
                                                             </Form.Select>
                                                         </div>
                                                     </Col>

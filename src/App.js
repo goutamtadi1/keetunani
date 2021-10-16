@@ -11,6 +11,7 @@ import Graph from './Graph'
 import Surprise from './Surprise.js';
 import Input from './Input'
 import Guess from './Guess';
+import Reset from './Reset';
 
 const App = () => {
 
@@ -47,6 +48,9 @@ const App = () => {
             </Route>
             <Route path="/surprise">
               <Surprise />
+            </Route>
+            <Route path="/reset">
+              <Reset />
             </Route>
             <Route path="/">
               <Guess />
