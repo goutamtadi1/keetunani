@@ -6,7 +6,7 @@ import TypeIt from "typeit-react";
 import Confetti from 'react-confetti'
 import Graph from './Graph.js';
 export default function Component() {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(25);
   const [delay, setDelay] = useState(null);
 
   const [wantToRevealGender, setWantToRevealGender] = useState(false);
