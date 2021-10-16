@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_forceDirected from "@amcharts/amcharts4/plugins/forceDirected";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
@@ -26,7 +28,7 @@ export default function Graph() {
             formatData(response.data);
         });
     };
-
+    
 
     function formatData(data) {
         data = data.map(el => {
@@ -52,8 +54,8 @@ export default function Graph() {
             }
         ]);
     }
-    if (chartData !== chart.data)
-        chart.data = chartData;
+    if(chartData!=chart.data)
+    chart.data = chartData;
 
     networkSeries.colors.list = [
         am4core.color(boy),
@@ -63,12 +65,12 @@ export default function Graph() {
 
     // Expand single level only
     networkSeries.nodes.template.expandAll = false;
-    networkSeries.nodes.template.fill = "#fffff";
+    networkSeries.nodes.template.fill="#fffff";
     networkSeries.dataFields.value = "value";
     networkSeries.dataFields.name = "name";
     networkSeries.dataFields.children = "children";
 
-    if (networkSeries.dataFields.name === 'male') {
+    if (networkSeries.dataFields.name == 'male') {
         return am4core.color("#00000");
     }
     networkSeries.nodes.template.tooltipText = "{name}";

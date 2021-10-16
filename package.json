@@ -1,6 +1,6 @@
 {
-  "name": "keetunani",
-  "version": "0.1.0",
+  "name": "react",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.22",
@@ -16,27 +16,17 @@
     "react-router-dom": "^5.3.0",
     "react-use-window-size": "^1.0.1",
     "string-crypto": "^2.0.2",
-    "underscore": "^1.13.1",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
-  },
-  "devDependencies": {
-    "typeit-react": "^2.0.3"
+    "underscore": "^1.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "react-scripts": "latest",
+    "typeit-react": "^2.0.3"
   },
   "browserslist": {
     "production": [

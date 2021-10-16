@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti'
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import axios from 'axios';
 
-export default function Input() {
+export default function input() {
     const [gender, setGender] = useState('');
     const [passCode, setpassCode] = useState("");
+    const ariaLabel = "Enter the Passcode"
     const { width, height } = '100%';
     const [show, setShow] = useState(false);
     const [infoText, setinfoText] = useState('');
 
-    // function validateForm(gender, passCode) {
-    //     if (gender.length <= 3)
-    //         return false;
+    function validateForm(gender, passCode) {
+        if (gender.length <= 3)
+            return false;
 
-    //     if (passCode.length <= 4)
-    //         return false;
+        if (passCode.length <= 4)
+            return false;
 
-    //     console.log(gender.length, passCode.length);
-    //     return true;
-    // }
+        console.log(gender.length, passCode.length);
+        return true;
+    }
 
 
     function saveData() {

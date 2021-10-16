@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import useInterval from './services/useInterval.js';
 import TypeIt from "typeit-react";
@@ -89,7 +89,7 @@ export default function Component() {
           //     ctx.closePath()
           // }}
           gravity={0.09}
-          colors={gender === 'boy' ? [boy] : [girl]}
+          colors={gender == 'boy' ? [boy] : [girl]}
           tweenDuration={1000}
           numberOfPieces={600}
         />
