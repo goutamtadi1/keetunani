@@ -7,7 +7,8 @@
 
 
 body {
-  background: #222 url('https://secrets-store.vercel.app/tadi_family.jpeg') center center no-repeat;
+  /* 1,2,3,4  can be used to change the images*/
+  background: #222 url('images/4.jpg') center center no-repeat;
   background-size: cover;
   height: 100%;
 }
@@ -56,7 +57,7 @@ h3 {
   height: 100%;
   z-index: -999;
   pointer-events: none;
-  /* top: 31%; */ 
+  /* top: 31%; */
 }
 
 /* only used for background overlay not needed for centering */
