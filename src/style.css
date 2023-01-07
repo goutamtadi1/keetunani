@@ -8,8 +8,8 @@
 
 body {
   /* 1,2,3,4  can be used to change the images*/
-  background: #222 url('images/6.jpeg') center center no-repeat;
-   /*  */
+  background: #222 url('images/mainBackground.jpeg') center center no-repeat;
+  /*  */
   background-size: cover;
   height: 100%;
 }

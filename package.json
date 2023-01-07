@@ -13,6 +13,7 @@
     "react-bootstrap": "^2.0.0-rc.0",
     "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
+    "react-particles": "^2.7.1",
     "react-router-dom": "^5.3.0",
     "react-use-window-size": "^1.0.1",
     "string-crypto": "^2.0.2",
