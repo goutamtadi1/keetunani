@@ -44,11 +44,10 @@ export default function Component() {
   const validatePasscode = () => {
     console.log('In Get Data...');
     setConfirmedReveal(true);
-    let url =
-      'https://gender-reveals.s3.amazonaws.com/data/data.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVOEG5XWC35GBSXXY%2F20211010%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211010T155423Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f6629ac618871e1d6a28cb23c02498e3874e1793e6c6033eb44f161407211639';
+    let dataGetUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=QyQQKdqxegggqoduVFSFwD4fSqI%3D&Expires=1673493395';
 
     setError(null);
-    axios.get(url).then((response) => {
+    axios.get(dataGetUrl).then((response) => {
       console.log('response: ', response.data);
       try {
         if (response.data.passcode === passcode) {

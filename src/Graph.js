@@ -21,10 +21,10 @@ export default function Graph() {
     am4core.useTheme(am4themes_animated);
 
     const getData = () => {
-        let url =
-            'https://gender-reveals.s3.amazonaws.com/data/guess.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVOEG5XWC35GBSXXY%2F20211013%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211013T044343Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6a905f480bfab4ed69dc0801c760f03069f2393e7f2872931318646f1a0799d0';
+        let guessGetUrl =
+            'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=qM7ANYnBz3qT%2FrSjewMIFI6qjTc%3D&Expires=1673493363';
 
-        axios.get(url).then((response) => {
+        axios.get(guessGetUrl).then((response) => {
             formatData(response.data);
         });
     };

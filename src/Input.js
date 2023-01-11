@@ -25,8 +25,8 @@ export default function input() {
 
     function saveData() {
         let data = { gender: gender, passcode: passCode };
-        const url = 'https://gender-reveals.s3.amazonaws.com/data/data.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVOEG5XWC35GBSXXY%2F20211010%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211010T155502Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=de41201250367819b4f7ec44d3e3aa6690b53d938b7933bde8d82d06b8427b84'
-        axios.put(url, data).then((response) => {
+        const dataPutUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=d2BtPGBSpPTONTR0kOu1IDWtu40%3D&Expires=1673493401'
+        axios.put(dataPutUrl, data).then((response) => {
             setinfoText("We saved your input", response);
             setShow(true);
             document.getElementById('form').reset();

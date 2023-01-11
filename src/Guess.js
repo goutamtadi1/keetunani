@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti'
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import axios from 'axios';
-
-const getUrl =
-    'https://gender-reveals.s3.amazonaws.com/data/guess.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVOEG5XWC35GBSXXY%2F20211013%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211013T044343Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=6a905f480bfab4ed69dc0801c760f03069f2393e7f2872931318646f1a0799d0';
-const putUrl = 'https://gender-reveals.s3.amazonaws.com/data/guess.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVOEG5XWC35GBSXXY%2F20211013%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211013T044343Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=fa4980eca12b542dd45fda5ab7d795b9cd89c9c91e5e500e9158f4c7d4bf3500';
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+const guessGetUrl =
+    'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=qM7ANYnBz3qT%2FrSjewMIFI6qjTc%3D&Expires=1673493363';
+const guessPutUrl = 'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=7weEUdXgmVQ4kmmdrsZtvZa5ivo%3D&Expires=1673493340';
 
 const Guess = () => {
     const [gender, setGender] = useState('default');
@@ -14,15 +15,15 @@ const Guess = () => {
     const [infoText, setInfoText] = useState('');
 
     const saveYourGuess = () => {
-        axios.get(getUrl).then((getResponse) => {
-            let prevGuesses = getResponse.data ? getResponse.data : [];
+        axios.get(guessGetUrl).then((getResponse) => {
+            let prevGuesses = [];
             console.log("Previous Data ", prevGuesses)
             const yourGuess = { gender: gender, name: name };
             const isDuplicateGuess = prevGuesses.some(prevGuess => prevGuess.name === name);
             if (!isDuplicateGuess) {
                 document.getElementById('form').reset();
                 let data = [...prevGuesses, yourGuess];
-                axios.put(putUrl, data).then((response) => {
+                axios.put(guessPutUrl, data).then((response) => {
                     setInfoText(name + " your Guess is recorded !");
                     setGender('default');
                     setName('');
@@ -91,7 +92,7 @@ const Guess = () => {
                                                 disabled={gender === 'default' || name.length <= 4}
                                                 className="btn btn-primary btn-lg submitButton">
                                                 Save Your Guess
-                                        </Button>
+                                            </Button>
                                             <Toast onClose={() => setInfoText('')} show={!!infoText} delay={6000} autohide>
                                                 <Toast.Header>
                                                     <h3 className="me-auto">
