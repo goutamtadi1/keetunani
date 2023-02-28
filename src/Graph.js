@@ -22,7 +22,7 @@ export default function Graph() {
 
     const getData = () => {
         let guessGetUrl =
-            'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=qM7ANYnBz3qT%2FrSjewMIFI6qjTc%3D&Expires=1673493363';
+            'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=WijBLA0j7UujY5Z6F%2Bycrgh0isU%3D&Expires=1677657583';
 
         axios.get(guessGetUrl).then((response) => {
             formatData(response.data);

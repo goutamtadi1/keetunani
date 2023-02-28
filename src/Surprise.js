@@ -44,7 +44,7 @@ export default function Component() {
   const validatePasscode = () => {
     console.log('In Get Data...');
     setConfirmedReveal(true);
-    let dataGetUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=QyQQKdqxegggqoduVFSFwD4fSqI%3D&Expires=1673493395';
+    let dataGetUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=c48Lz2DTP2XDlqNG4hLwo6aeyZU%3D&Expires=1677657608';
 
     setError(null);
     axios.get(dataGetUrl).then((response) => {

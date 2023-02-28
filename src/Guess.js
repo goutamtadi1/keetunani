@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti'
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import axios from 'axios';
-axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const guessGetUrl =
-    'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=qM7ANYnBz3qT%2FrSjewMIFI6qjTc%3D&Expires=1673493363';
-const guessPutUrl = 'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=7weEUdXgmVQ4kmmdrsZtvZa5ivo%3D&Expires=1673493340';
-
+    'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=WijBLA0j7UujY5Z6F%2Bycrgh0isU%3D&Expires=1677657583';
+const guessPutUrl = 'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=fnzq6X6qs7DF4y0NrJ13pRI9xtQ%3D&content-type=application%2Fjson&Expires=1677657432';
+const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+};
 const Guess = () => {
     const [gender, setGender] = useState('default');
     const [name, setName] = useState("");
@@ -23,7 +24,7 @@ const Guess = () => {
             if (!isDuplicateGuess) {
                 document.getElementById('form').reset();
                 let data = [...prevGuesses, yourGuess];
-                axios.put(guessPutUrl, data).then((response) => {
+                axios.put(guessPutUrl, data, { headers }).then((response) => {
                     setInfoText(name + " your Guess is recorded !");
                     setGender('default');
                     setName('');

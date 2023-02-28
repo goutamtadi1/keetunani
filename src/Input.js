@@ -25,8 +25,12 @@ export default function input() {
 
     function saveData() {
         let data = { gender: gender, passcode: passCode };
-        const dataPutUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHDUZOBH43&Signature=d2BtPGBSpPTONTR0kOu1IDWtu40%3D&Expires=1673493401'
-        axios.put(dataPutUrl, data).then((response) => {
+        const headers = {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        };
+        const dataPutUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=PyNsmJjThb8cDKXh1wZS7Xj5DxY%3D&content-type=application%2Fjson&Expires=1677657402';
+        axios.put(dataPutUrl, data, { headers }).then((response) => {
             setinfoText("We saved your input", response);
             setShow(true);
             document.getElementById('form').reset();
