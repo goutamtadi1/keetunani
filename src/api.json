@@ -1,0 +1,10 @@
+{
+  "data": {
+    "get": "https://suprajaramak-reveal.s3.amazonaws.com/data.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOFEUTCHP7BENGGI%2F20230302%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230302T091530Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=260feac4aff3ef9807f3f373759fdde9140288cd59e325e85ad3a65365a1017a",
+    "put": "https://suprajaramak-reveal.s3.amazonaws.com/data.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOFEUTCHP7BENGGI%2F20230302%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230302T091538Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c9e97cf28b06519cc553dbe184a3b2965cfa19e5a3452fc9518b70bff30b1d50"
+  },
+  "guess": {
+    "get": "https://suprajaramak-reveal.s3.amazonaws.com/guess.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOFEUTCHP7BENGGI%2F20230302%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230302T091502Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=f0afef518b35c756e93b9017754293d297a1751f80ac31ee59e18415bfc6ddd1",
+    "put": "https://suprajaramak-reveal.s3.amazonaws.com/guess.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAWOFEUTCHP7BENGGI%2F20230302%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230302T093037Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=763fbfec544fce8df1968e9bbb16d0970bbcfb59560bcb1f66d96bbe9a5acea1"
+  }
+}

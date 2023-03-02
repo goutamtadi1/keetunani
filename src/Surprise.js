@@ -5,6 +5,7 @@ import useInterval from './services/useInterval.js';
 import TypeIt from "typeit-react";
 import Confetti from 'react-confetti'
 import Graph from './Graph.js';
+import API from './api.json';
 export default function Component() {
   const [count, setCount] = useState(25);
   const [delay, setDelay] = useState(null);
@@ -44,8 +45,7 @@ export default function Component() {
   const validatePasscode = () => {
     console.log('In Get Data...');
     setConfirmedReveal(true);
-    let dataGetUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=c48Lz2DTP2XDlqNG4hLwo6aeyZU%3D&Expires=1677657608';
-
+    const dataGetUrl = API.data.get;
     setError(null);
     axios.get(dataGetUrl).then((response) => {
       console.log('response: ', response.data);

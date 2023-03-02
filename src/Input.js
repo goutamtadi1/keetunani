@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti'
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import axios from 'axios';
+import API from './api.json';
 
 export default function input() {
     const [gender, setGender] = useState('');
@@ -29,7 +30,7 @@ export default function input() {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
         };
-        const dataPutUrl = 'https://genderreveals.s3.amazonaws.com/data.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=PyNsmJjThb8cDKXh1wZS7Xj5DxY%3D&content-type=application%2Fjson&Expires=1677657402';
+        const dataPutUrl = API.data.put;
         axios.put(dataPutUrl, data, { headers }).then((response) => {
             setinfoText("We saved your input", response);
             setShow(true);

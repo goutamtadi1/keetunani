@@ -5,12 +5,14 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_forceDirected from "@amcharts/amcharts4/plugins/forceDirected";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import API from './api.json';
 
-
-var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
-var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());
-
+let networkSeries, chart;
 export default function Graph() {
+    am4core.ready(() => {
+        chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+        networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());
+    });
     const [chartData, setchartData] = useState([]);
     const boy = "#03D0FE";
     const girl = "#FE03EF";
@@ -21,9 +23,7 @@ export default function Graph() {
     am4core.useTheme(am4themes_animated);
 
     const getData = () => {
-        let guessGetUrl =
-            'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=WijBLA0j7UujY5Z6F%2Bycrgh0isU%3D&Expires=1677657583';
-
+        const guessGetUrl = API.guess.get;
         axios.get(guessGetUrl).then((response) => {
             formatData(response.data);
         });
@@ -59,7 +59,7 @@ export default function Graph() {
 
     networkSeries.colors.list = [
         am4core.color(boy),
-        am4core.color(girl),
+        am4core.color(girl).lighten(0.5),
     ];
     // networkSeries.maxLevels = 1;
 

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti'
 import { Container, Form, Row, Col, Toast, Button } from 'react-bootstrap';
 import axios from 'axios';
-const guessGetUrl =
-    'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=WijBLA0j7UujY5Z6F%2Bycrgh0isU%3D&Expires=1677657583';
-const guessPutUrl = 'https://genderreveals.s3.amazonaws.com/guess.json?AWSAccessKeyId=AKIAWOFEUTCHBW4PMQRC&Signature=fnzq6X6qs7DF4y0NrJ13pRI9xtQ%3D&content-type=application%2Fjson&Expires=1677657432';
+import API from './api.json';
+const guessGetUrl = API.guess.get;
+const guessPutUrl = API.guess.put;
 const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
@@ -17,7 +17,7 @@ const Guess = () => {
 
     const saveYourGuess = () => {
         axios.get(guessGetUrl).then((getResponse) => {
-            let prevGuesses = [];
+            let prevGuesses = getResponse?.data ?? [];
             console.log("Previous Data ", prevGuesses)
             const yourGuess = { gender: gender, name: name };
             const isDuplicateGuess = prevGuesses.some(prevGuess => prevGuess.name === name);
